@@ -12,16 +12,20 @@ function resolve (dir) {
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
+  entry: {  //表示webpack編譯js入口文件
+    //key: value
     app: './src/main.js'
   },
-  output: {
-    path: config.build.assetsRoot,
-    filename: '[name].js',
+  //輸出的配置文件
+  output: { 
+    path: config.build.assetsRoot,  //路徑
+    filename: '[name].js',  //文件名稱  name ===> app ===>app.js
+    //  請求靜態資源的絕對路徑
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  // 導入時的配置
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
@@ -29,26 +33,34 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  // 對某種類型的文件，通過某個loader出做處理
   module: {
     rules: [
+      // .vue類型的文件
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
       {
+      // .js類型的文件
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
+      // 圖片文件
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          // 文件大小
+          limit: 10000,   //10kb
+          // 文件名生成
+          // static/img/文件名.hash串.文件後綴
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
+      // 音頻視頻的處理
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
@@ -57,6 +69,7 @@ module.exports = {
           name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
       },
+      // 字體圖標的處理
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',

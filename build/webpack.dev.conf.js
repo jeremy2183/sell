@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const path = require('path')
-const baseWebpackConfig = require('./webpack.base.conf')
+const baseWebpackConfig = require('./webpack.base.conf')  //開發、運行時共享的文件
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
@@ -13,8 +13,10 @@ const portfinder = require('portfinder')
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
+// baseWebpackConfig和當前配置進行合併
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
+    // 傳入的參數 true
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },
   // cheap-module-eval-source-map is faster for development
@@ -33,10 +35,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     compress: true,
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
-    open: config.dev.autoOpenBrowser,
+    open: config.dev.autoOpenBrowser, // 是否自動打開瀏覽器
     overlay: config.dev.errorOverlay
       ? { warnings: false, errors: true }
       : false,
+
+    // 是給webpack-dev-middleware中間使用的
+    // express專門為webpack開發的中間件
+    // 放置內存中
     publicPath: config.dev.assetsPublicPath,
     proxy: config.dev.proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
@@ -44,17 +50,24 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     }
   },
+  // 插件
   plugins: [
+    // 
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(), // 熱加載插件
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(), // 跳過編譯時出錯的代碼，使編譯的運要包不會出現錯誤
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
+      //  編譯生成的html文件名
       filename: 'index.html',
       template: 'index.html',
+
+      //表示打包輸出過程中，會自動將.css和.js添加到上述文件中
+      //css默認路徑是head標籤中
+      // js默認路徑是body裡面
       inject: true
     }),
     // copy custom static assets
