@@ -1,14 +1,10 @@
 <template>
   <div id="app">
     <!-- header -->
-    <div class="header">
-      header
-    </div>
+    <Myheader/>
 
     <!-- nav -->
-    <div class="nav">
-      nav
-    </div>
+    <Mynav/>
 
     <!-- content -->
     <div class="content">
@@ -18,11 +14,15 @@
 </template>
 
 <script>
-
+//1.導入
+import Myheader from './components/Header/Header'
+import Mynav from './components/Nav/Nav'
 
 export default {
   name: 'App',
-  components: {}
+  components: { //2.註冊
+    Myheader,Mynav
+  }
 }
 </script>
 

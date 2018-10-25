@@ -16,9 +16,9 @@ const express = require('express')
 const app = express()
 
 //1.讀取json數據
-var goods = require('../data/01-商品页(点菜).json');
-var ratings = require('../data/02-商品页(评价).json');
-var seller = require('../data/03-商品页(商家).json');
+var goods = require('../data/01-商品頁(點菜).json');
+var ratings = require('../data/02-商品頁(評價).json');
+var seller = require('../data/03-商品頁(商家).json');
 
 //2.路由
 // var routes = express.Router();
