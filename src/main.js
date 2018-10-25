@@ -6,9 +6,15 @@ import VueRouter from 'vue-router'
 
 //1.導入組件(定義路由組件)
 // 可以從其他文件 import 進來
-import Goods from './components/Goods/Goods'
-import Ratings from './components/Ratings/Ratings'
-import Seller from './components/Seller/Seller'
+import Goods from "./components/Goods/Goods"
+import Ratings from "./components/Ratings/Ratings"
+import Seller from "./components/Seller/Seller"
+
+
+Vue.config.productionTip = false
+
+//安裝vue-router插件
+Vue.use(VueRouter);
 
 //2.定義路由
 // 每個路由應該映射一個組件。 其中"component" 可以是
@@ -17,16 +23,21 @@ import Seller from './components/Seller/Seller'
 // 我們晚點再討論嵌套路由。
 const routes = [
 	{
-		path: '/goods',
-		components: Goods
+		path: '/',
+		//重定向
+		redirect: '/goods'
 	},
 	{
-		path: '/ratings',
-		components: Ratings
+		path:'/goods',
+		component: Goods
 	},
 	{
-		path: '/seller',
-		components: Seller
+		path:'/ratings',
+		component: Ratings
+	},
+	{
+		path:'/seller',
+		component: Seller
 	}
 ]
 
@@ -37,10 +48,8 @@ const router = new VueRouter({
 })
 
 
-//安裝vue-router插件
-Vue.use(VueRouter);
 
-Vue.config.productionTip = false
+
 
 /* eslint-disable no-new */
 new Vue({

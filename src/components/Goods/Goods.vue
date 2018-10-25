@@ -6,10 +6,12 @@
 
 <script>
 	export default{
-		
+
 	}
 </script>
 
 <style>
-
+	.goods{
+		text-align: center;
+	}
 </style>

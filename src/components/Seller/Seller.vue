@@ -11,5 +11,7 @@
 </script>
 
 <style>
-
+	.seller{
+		text-align: center;
+	}
 </style>

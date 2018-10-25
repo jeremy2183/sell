@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <!-- header -->
-    <Myheader/>
+    <Myheader></Myheader>
 
     <!-- nav -->
-    <Mynav/>
+    <Mynav></Mynav>
 
     <!-- content -->
     <!-- <div class="content">
@@ -13,14 +13,14 @@
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
-    
+
   </div>
 </template>
 
 <script>
 //1.導入
-import Myheader from './components/Header/Header'
-import Mynav from './components/Nav/Nav'
+import Myheader from './components/Header/Header';
+import Mynav from './components/Nav/Nav';
 
 export default {
   name: 'App',

@@ -11,5 +11,7 @@
 </script>
 
 <style>
-
+	.ratings{
+		text-align: center;
+	}
 </style>
