@@ -1,14 +1,11 @@
 <template>
 	<div class="nav">
-		<div class="nav-item goods">
-			點菜
-		</div>
-		<div class="nav-item ratings">
-			評價
-		</div>
-		<div class="nav-item seller">
-			商家
-		</div>
+		<!-- 使用 router-link 組件來導航. -->
+    <!-- 通過傳入 `to` 屬性指定鏈接. -->
+    <!-- <router-link> 默認會被渲染成一個 `<a>` 標籤 -->
+    <router-link to="/goods">點菜</router-link>
+    <router-link to="/ratings">評價</router-link>
+    <router-link to="/seller">商家</router-link>
 	</div>
 </template>
 
