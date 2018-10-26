@@ -25,7 +25,7 @@ const routes = [
 	{
 		path: '/',
 		//重定向
-		redirect: '/goods'
+		redirect: '/goods'	// '/' ==> '/goods'
 	},
 	{
 		path:'/goods',
@@ -44,7 +44,9 @@ const routes = [
 // 3. 創建 router 實例，然後傳 `routes` 配置
 // 你還可以傳別的配置參數
 const router = new VueRouter({
-	routes
+	routes,
+	// 選中後的類名 (默認值是router-link-active)
+	linkActiveClass: 'active'
 })
 
 

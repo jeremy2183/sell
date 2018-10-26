@@ -25,5 +25,12 @@
 	.nav .nav-item{
 		flex: 1;
 		text-align: center;
+		font-size: 13px;
+		text-decoration: none;
+		color: #666;
+	}
+
+	.nav .active{
+		color: #ffbb22;
 	}
 </style>
