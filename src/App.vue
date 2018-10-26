@@ -26,6 +26,12 @@ export default {
   name: 'App',
   components: { //2.註冊
     Myheader,Mynav
+  },
+  data(){
+    return{
+      //header組件需要的信息(商家信息)
+      poiInfo: {}
+    }
   }
 }
 </script>

@@ -35,7 +35,7 @@
 	.nav .nav-item{
 		flex: 1;
 		text-align: center;
-		font-size: 13px;
+		font-size: 16px;
 		text-decoration: none;
 		color: #666;
 		position: relative;

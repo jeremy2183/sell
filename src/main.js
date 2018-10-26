@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+import Axios from 'Axios'
 
 //1.導入組件(定義路由組件)
 // 可以從其他文件 import 進來
@@ -15,6 +16,9 @@ Vue.config.productionTip = false
 
 //安裝vue-router插件
 Vue.use(VueRouter);
+
+//如果在其他組件中使用axios命令，需要改寫為Vue原型屬性
+Vue.prototype.$axios = Axios;
 
 //2.定義路由
 // 每個路由應該映射一個組件。 其中"component" 可以是
