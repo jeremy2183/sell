@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- header -->
-    <Myheader></Myheader>
+    <Myheader :poiInfo='poiInfo'></Myheader>
 
     <!-- nav -->
     <Mynav></Mynav>
@@ -32,6 +32,22 @@ export default {
       //header組件需要的信息(商家信息)
       poiInfo: {}
     }
+  },
+  created(){  //發起異步請求，獲取數據
+    var that = this;
+    //通過axios發起get請求
+    this.$axios.get('/api/goods')
+      .then(function (response) { //獲取到數據
+        // console.log(response);
+        var dataSource = response.data;
+        if(dataSource.code == 0){
+          that.poiInfo = dataSource.data.poi_info;
+          // console.log(that.poiInfo);
+        }
+      })
+      .catch(function (error) { //出錯處理
+        console.log(error);
+      });
   }
 }
 </script>
