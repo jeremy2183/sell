@@ -14,7 +14,11 @@
 
 			<div class="more-wrapper">
 				<a class="spelling-bt" href="#">選單</a>
-				<div class="more-bt"></div>
+				<div class="more-bt">
+					<i class="s-radius"></i>
+					<i class="s-radius"></i>
+					<i class="s-radius"></i>
+				</div>
 			</div>
 		</div>
 
