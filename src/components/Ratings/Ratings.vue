@@ -12,6 +12,6 @@
 
 <style>
 	.ratings{
-		text-align: center;
+		/*text-align: center;*/
 	}
 </style>

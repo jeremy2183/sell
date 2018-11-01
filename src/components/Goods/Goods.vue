@@ -12,6 +12,6 @@
 
 <style>
 	.goods{
-		text-align: center;
+		/*text-align: center;*/
 	}
 </style>

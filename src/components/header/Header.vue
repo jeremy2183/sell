@@ -1,6 +1,6 @@
 <template>
 	<div class="header">
-			<!-- {{poiInfo.name}} -->
+			<!-- {{poiInfo2.name}} -->
 		<!-- 頂部 -->
 		<div class="top-wrapper">
 			<div class="back-wrapper">
@@ -13,7 +13,7 @@
 			</div>
 
 			<div class="more-wrapper">
-				<a class="spelling-bt" href="#">拚單</a>
+				<a class="spelling-bt" href="#">選單</a>
 				<div class="more-bt"></div>
 			</div>
 		</div>
@@ -30,7 +30,7 @@
 <script>
 	export default{
 		props: {
-			poiInfo: {	//自定義屬性
+			poiInfo2: {	//自定義屬性
 				type: Object,
 				default: {}
 			}
@@ -39,6 +39,8 @@
 </script>
 
 <style>
+	/*導入字體圖標*/
+	@import url(../../common/styles/icon.css);
 	/* 導入css樣式 */
 	@import url(Header.css);
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- header -->
-    <Myheader :poiInfo='poiInfo'></Myheader>
+    <Myheader :poiInfo2='poiInfo'></Myheader>
 
     <!-- nav -->
     <Mynav></Mynav>
@@ -40,9 +40,10 @@ export default {
       .then(function (response) { //獲取到數據
         // console.log(response);
         var dataSource = response.data;
+        // console.log(dataSource);
         if(dataSource.code == 0){
           that.poiInfo = dataSource.data.poi_info;
-          // console.log(that.poiInfo);
+          console.log(that.poiInfo);
         }
       })
       .catch(function (error) { //出錯處理
