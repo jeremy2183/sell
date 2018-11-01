@@ -43,7 +43,7 @@ export default {
         // console.log(dataSource);
         if(dataSource.code == 0){
           that.poiInfo = dataSource.data.poi_info;
-          console.log(that.poiInfo);
+          // console.log(that.poiInfo);
         }
       })
       .catch(function (error) { //出錯處理

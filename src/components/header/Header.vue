@@ -23,20 +23,44 @@
 		</div>
 
 		<!-- 主體內容 -->
-		<div class="content-wrapper"></div>
+		<div class="content-wrapper">
+			<div class="icon" :style="head_bg">
+				<!-- <img :src="poiInfo2.pic_url"> -->
+			</div>
+			<div class="name">
+				<h3>{{poiInfo2.name}}</h3>
+			</div>
+			<div class="collect">
+				<img src="../../../resource/img/star.png">
+				<span>收藏</span>
+			</div>
+		</div>
 
 		<!-- 公告內容 -->
 		<div class="bulletin-wrapper"></div>
+
+		<!-- 背景 -->
+		<div class="bg-wrapper" :style="content_bg">
+			<!-- <img :src="poiInfo2.head_pic_url"> -->
+		</div>
 
 	</div>
 </template>
 
 <script>
 	export default{
-		props: {
+		props: {	//組件傳值
 			poiInfo2: {	//自定義屬性
 				type: Object,
 				default: {}
+			}
+		},
+		computed: {	//計算屬性
+			content_bg(){	//背景
+				return "background-image: url(" + this.poiInfo2.head_pic_url + ")";
+			},
+			head_bg(){	//麥當勞icon
+				return "background-image: url(" + this.poiInfo2.pic_url + ")";
 			}
 		}
 	}
