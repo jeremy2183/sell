@@ -177,3 +177,14 @@
 	height: 150px;
 
 }*/
+
+
+/*公告詳情*/
+.bulletin-detail{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(98,98,98,0.8);
+}

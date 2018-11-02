@@ -53,6 +53,35 @@
 			<!-- <img :src="poiInfo2.head_pic_url"> -->
 		</div>
 
+		<!-- 公告詳情 -->
+		<div class="bulletin-detail">
+			<div class="detail-wrapper">
+				<div class="content-wrapper">
+					<div class="icon" :style="head_bg"></div>
+					<h3 class="name">{{poiInfo2.name}}</h3>
+					<!-- 評價 稍後 -->
+					<p class="tip">
+						{{poiInfo2.min_price_tip}} <i>|</i>
+						{{poiInfo2.shipping_fee_tip}} <i>|</i>
+						{{poiInfo2.delivery_time_tip}}
+					</p>
+					<div class="time">
+						配送時間:{{poiInfo2.shipping_time}}
+					</div>
+					<div class="discounts">
+						<p>
+							<img v-if="poiInfo2.discounts2" :src="poiInfo2.discounts2[0].icon_url">
+							<span v-if="poiInfo2.discounts2">{{poiInfo2.discounts2[0].info}}</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="close-wrapper">
+					<span class="icon-close"></span>
+				</div>
+			</div>
+		</div>
+
 	</div>
 </template>
 
