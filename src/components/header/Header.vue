@@ -37,7 +37,16 @@
 		</div>
 
 		<!-- 公告內容 -->
-		<div class="bulletin-wrapper"></div>
+		<div class="bulletin-wrapper">
+			<img class="icon" v-if="poiInfo2.discounts2" :src="poiInfo2.discounts2[0].icon_url">
+			<span class="text" v-if="poiInfo2.discounts2">
+				{{poiInfo2.discounts2[0].info}}
+			</span>
+			<div class="detail" v-if="poiInfo2.discounts2">
+				{{poiInfo2.discounts2.length}}個活動
+				<span class="icon-keyboard_arrow_right"></span>
+			</div>
+		</div>
 
 		<!-- 背景 -->
 		<div class="bg-wrapper" :style="content_bg">
