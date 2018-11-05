@@ -44,7 +44,7 @@
 			</span>
 			<div class="detail" v-if="poiInfo2.discounts2">
 				{{poiInfo2.discounts2.length}}個活動
-				<span class="icon-keyboard_arrow_right"></span>
+				<span class="icon-keyboard_arrow_right" @click="showBulletin"></span>
 			</div>
 		</div>
 
@@ -54,39 +54,45 @@
 		</div>
 
 		<!-- 公告詳情 -->
-		<div class="bulletin-detail">
-			<div class="detail-wrapper">
-				<div class="main-wrapper" :style="detail_bg">
-					<div class="icon" :style="head_bg"></div>
-					<h3 class="name">{{poiInfo2.name}}</h3>
-					<!-- 評價 稍後 -->
-					<p class="tip">
-						{{poiInfo2.min_price_tip}} <i>|</i>
-						{{poiInfo2.shipping_fee_tip}} <i>|</i>
-						{{poiInfo2.delivery_time_tip}}
-					</p>
-					<div class="time">
-						配送時間:{{poiInfo2.shipping_time}}
-					</div>
-					<div class="discounts">
-						<p>
-							<img v-if="poiInfo2.discounts2" :src="poiInfo2.discounts2[0].icon_url">
-							<span v-if="poiInfo2.discounts2">{{poiInfo2.discounts2[0].info}}</span>
+		<transition name="detail">
+			<div class="bulletin-detail" v-show="isShow">
+				<div class="detail-wrapper">
+					<div class="main-wrapper" :style="detail_bg">
+						<div class="icon" :style="head_bg"></div>
+						<h3 class="name">{{poiInfo2.name}}</h3>
+						<!-- 評價 稍後 -->
+						<p class="tip">
+							{{poiInfo2.min_price_tip}} <i>|</i>
+							{{poiInfo2.shipping_fee_tip}} <i>|</i>
+							{{poiInfo2.delivery_time_tip}}
 						</p>
+						<div class="time">
+							配送時間:{{poiInfo2.shipping_time}}
+						</div>
+						<div class="discounts">
+							<p>
+								<img v-if="poiInfo2.discounts2" :src="poiInfo2.discounts2[0].icon_url">
+								<span v-if="poiInfo2.discounts2">{{poiInfo2.discounts2[0].info}}</span>
+							</p>
+						</div>
 					</div>
-				</div>
 
-				<div class="close-wrapper">
-					<span class="icon-close"></span>
+					<div class="close-wrapper">
+						<span class="icon-close" @click="closeBulletin"></span>
+					</div>
 				</div>
 			</div>
-		</div>
+		</transition>
 
 	</div>
 </template>
-
 <script>
 	export default{
+		data(){
+			return{
+				isShow: false	//公告詳情是否顯示
+			}
+		},
 		props: {	//組件傳值
 			poiInfo2: {	//自定義屬性
 				type: Object,
@@ -102,6 +108,14 @@
 			},
 			detail_bg(){
 				return "background-image: url(" + this.poiInfo2.poi_back_pic_url + ")";
+			}
+		},
+		methods:{
+			showBulletin(){
+				this.isShow = true;
+			},
+			closeBulletin(){
+				this.isShow = false;
 			}
 		}
 	}

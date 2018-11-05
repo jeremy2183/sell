@@ -194,6 +194,7 @@
 	height: 100%;
 	padding: 43px 20px 125px;
 	box-sizing: border-box;
+	/*animation: animations8 ease-out 1.3s ;*/
 }
 .header .bulletin-detail .detail-wrapper .main-wrapper{
 	width: 100%;
@@ -245,6 +246,85 @@
 }
 .header .bulletin-detail .detail-wrapper .main-wrapper .discounts span{
 	font-size: 11px;
-	/*line-height: 16px;*/  
+	/*line-height: 16px;  */
 	color: #fff;
+}
+.header .bulletin-detail .detail-wrapper .close-wrapper{
+	padding-top: 20px;
+	height: 40px;
+	text-align: center;
+}
+.header .bulletin-detail .detail-wrapper .close-wrapper span{
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 50%;
+	font-size: 14px;
+	color: #fff;
+	display: inline-block;
+	background: rgba(118,118,118,.7);
+	border: 1px solid rgba(140,140,140,.9);
+}
+
+
+
+/* Vue過渡效果 
+
+.xxx-enter	過渡開始的狀態
+.xxx-enter-to		過渡結束的狀態
+.xxx-enter-active		過渡時間、延遲、曲線函數
+
+.xxx-leave	過渡開始的狀態
+.xxx-leave-to		過渡結束的狀態
+.xxx-leave-active		過渡時間、延遲、曲線函數
+
+*/
+/*方式一*/
+/*.detail-enter-active, .detail-leave-active{
+	transition: 1.5s all;
+}
+.detail-enter, .detail-leave-to{
+	opacity: 0;
+}
+.detail-enter-to, .detail-leave{
+	opacity: 1;
+}*/
+
+
+/*方式二*/
+.detail-enter-active{
+	animation: animations8 1.2s;
+}
+.detail-leave-active{
+	animation: animations8 1.5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.active{
+	animation: animations8 ease-out 1.3s ;
+}
+.active2{
+	animation: animations5 linear 1.5s forwards;
+}
+@keyframes animations5{
+    0%{transform:scale(1);opacity:1;}
+    60%{transform:scale(0);opacity:0;}
+    100%{transform:scale(1);opacity:0;}
+}
+
+@keyframes animations8{
+    0%{transform:scale(0);opacity:0;}
+    60%{transform:scale(0);opacity:0;}
+    100%{transform:scale(1);opacity:1;}
 }
