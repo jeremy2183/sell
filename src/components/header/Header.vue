@@ -56,7 +56,7 @@
 		<!-- 公告詳情 -->
 		<div class="bulletin-detail">
 			<div class="detail-wrapper">
-				<div class="content-wrapper">
+				<div class="main-wrapper" :style="detail_bg">
 					<div class="icon" :style="head_bg"></div>
 					<h3 class="name">{{poiInfo2.name}}</h3>
 					<!-- 評價 稍後 -->
@@ -99,6 +99,9 @@
 			},
 			head_bg(){	//麥當勞icon
 				return "background-image: url(" + this.poiInfo2.pic_url + ")";
+			},
+			detail_bg(){
+				return "background-image: url(" + this.poiInfo2.poi_back_pic_url + ")";
 			}
 		}
 	}
