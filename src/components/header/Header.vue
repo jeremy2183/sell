@@ -31,7 +31,7 @@
 				<h3>{{poiInfo2.name}}</h3>
 			</div>
 			<div class="collect">
-				<img src="../../../resource/img/star.png">
+				<img src="./star.png">
 				<span>收藏</span>
 			</div>
 		</div>
@@ -61,6 +61,10 @@
 						<div class="icon" :style="head_bg"></div>
 						<h3 class="name">{{poiInfo2.name}}</h3>
 						<!-- 評價 稍後 -->
+						<div class="score">
+							<Star :score='poiInfo2.wm_poi_score'></Star>
+							<span>{{poiInfo2.wm_poi_score}}</span>
+						</div>
 						<p class="tip">
 							{{poiInfo2.min_price_tip}} <i>|</i>
 							{{poiInfo2.shipping_fee_tip}} <i>|</i>
@@ -87,11 +91,22 @@
 	</div>
 </template>
 <script>
+	//導入Star組件(絕對路徑: 需修改build的webpack.base.conf.js)
+	//	./components/xxx/xxx
+	import Star from "components/Star/Star"
+
+	//導入Star組件	(相對路徑)
+	// import Star from "../Star/Star"
+
+
 	export default{
 		data(){
 			return{
 				isShow: false	//公告詳情是否顯示
 			}
+		},
+		components: {
+			Star
 		},
 		props: {	//組件傳值
 			poiInfo2: {	//自定義屬性

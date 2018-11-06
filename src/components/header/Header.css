@@ -33,7 +33,7 @@
 .header .top-wrapper .search-wrapper .search-icon{
 	width: 28px;
 	height: 31px;
-	background: url(../../../resource/img/titans_h5_search@2x.png)no-repeat 11px center;
+	background: url(titans_h5_search@2x.png)no-repeat 11px center;
 	background-size: 13px 13px;
 	position: absolute;	
 }
@@ -217,6 +217,22 @@
 	margin-top: 13px;
 	color: #fff;
 }
+.header .bulletin-detail .detail-wrapper .main-wrapper .score{
+	height: 10px;
+	margin-top: 6px;
+	margin-bottom: 8px;
+	font-size: 0;
+	text-align: center;
+}
+.header .bulletin-detail .detail-wrapper .main-wrapper .score .star{
+	display: inline-block;
+	margin-right: 7px;
+}
+.header .bulletin-detail .detail-wrapper .main-wrapper .score span{
+	display: inline-block;	
+	font-size: 10px;
+	color: #fff;
+}
 .header .bulletin-detail .detail-wrapper .main-wrapper .tip{
 	font-size: 11px;
 	color: #bababc;
@@ -280,7 +296,7 @@
 
 */
 /*方式一*/
-/*.detail-enter-active, .detail-leave-active{
+.detail-enter-active, .detail-leave-active{
 	transition: 1.5s all;
 }
 .detail-enter, .detail-leave-to{
@@ -288,16 +304,16 @@
 }
 .detail-enter-to, .detail-leave{
 	opacity: 1;
-}*/
+}
 
 
 /*方式二*/
-.detail-enter-active{
+/*.detail-enter-active{
 	animation: animations8 1.2s;
 }
 .detail-leave-active{
 	animation: animations8 1.5s reverse;
-}
+}*/
 
 @keyframes bounce-in {
   0% {
@@ -311,12 +327,12 @@
   }
 }
 
-.active{
+/*.active{
 	animation: animations8 ease-out 1.3s ;
 }
 .active2{
 	animation: animations5 linear 1.5s forwards;
-}
+}*/
 @keyframes animations5{
     0%{transform:scale(1);opacity:1;}
     60%{transform:scale(0);opacity:0;}
