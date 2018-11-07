@@ -22,7 +22,33 @@
 */
 .goods .menu-wrapper{
 	flex: 0 0 85px;
-	background: red;
+	background: #f4f4f4;
+}
+.goods .menu-wrapper .menu-item{
+	padding: 16px 23px 15px 10px;
+	border-bottom: 1px solid #e4d4d4;
+}
+.goods .menu-wrapper .menu-item .text{
+	font-size: 13px;
+	color: #333;
+	line-height: 17px;
+	vertical-align: middle;
+
+	/* 多行顯示省略號，使用webkit的CSS擴展屬性，適用方位webkit瀏覽器以及移動端 */
+	/* 用來顯示一個塊元素顯示的文本行數 */
+	-webkit-line-clamp: 2;
+	/* 必須，將對象作為彈性伸縮盒子模型顯示 */
+	display: -webkit-box;
+	/* 必須，設置或檢索伸縮盒子的子元素排列方式 */
+	-webkit-box-orient: vertical;
+	
+	overflow: hidden;
+
+}
+.goods .menu-wrapper .menu-item .text .icon{
+	width: 15px;
+	height: 15px;
+	vertical-align: middle;
 }
 .goods .foods-wrapper{
 	flex: 1;
