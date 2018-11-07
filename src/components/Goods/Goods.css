@@ -1,0 +1,30 @@
+.goods{
+	display: flex;
+
+	/* 通過該方式確定高度 */
+	position: absolute;
+	top: 190px;
+	bottom: 51px;
+
+	overflow: hidden;
+	width: 100%;
+}
+
+/*
+	flex: flex-grow | flex-shrink | flex-basis;
+
+	flex-grow必邊，其餘可選
+	默認: flex 0 1 auto;
+	flex-grow(延伸): 定義放大比例，默認是0，如果存在剩餘空間，也不會放大;
+	flex-shrink(收縮比): 定義縮小比例，默認1，如果空間不足，該項目將狀被縮小，flex-shrink屬性為0時，其他項目為1，則空間不足時，前者不縮小;
+	flex-basis: 定義了在分配多餘空間之前，項目占據主軸空間，瀏覽器根據這個屬性，計算占據是否有多餘空間,
+							默認值是auto，即項目的本來大小，設為跟width或height屬性值一樣，則項目占據固定空間;
+*/
+.goods .menu-wrapper{
+	flex: 0 0 85px;
+	background: red;
+}
+.goods .foods-wrapper{
+	flex: 1;
+	background: blue;
+}

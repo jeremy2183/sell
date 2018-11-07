@@ -1,6 +1,10 @@
 <template>
 	<div class="goods">
-		點菜組件內容
+		<!-- 分類 -->
+		<div class="menu-wrapper"></div>
+
+		<!-- 商品列表 -->
+		<div class="foods-wrapper"></div>
 	</div>
 </template>
 
@@ -11,7 +15,5 @@
 </script>
 
 <style>
-	.goods{
-		/*text-align: center;*/
-	}
+	@import url(Goods.css);
 </style>

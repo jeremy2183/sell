@@ -1,5 +1,5 @@
 .header{
-	height: 160px;
+	height: 130px;
 	padding-top: 20px;
 }
 
@@ -119,6 +119,7 @@
 	height: 37px;
 	float: right;
 	text-align: center;
+	/*padding-top: 6px;*/
 }
 .content-wrapper .collect img{
 	width: 20px;
@@ -133,7 +134,7 @@
 
 /*公告內容*/
 .bulletin-wrapper{
-	heig.bulletin-wrapperht: 16px;
+	height: 16px;
 	padding: 0 10px;
 }
 .bulletin-wrapper .icon{
