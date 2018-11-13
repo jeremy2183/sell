@@ -1,7 +1,7 @@
 <template>
 	<div class="goods">
 		<!-- 分類 -->
-		<div class="menu-wrapper">
+		<div class="menu-wrapper" ref="menuScroll">
 			<ul>
 				<!-- 專場 -->
 				<li class="menu-item">
@@ -21,14 +21,14 @@
 		</div>
 
 		<!-- 商品列表 -->
-		<div class="foods-wrapper">
+		<div class="foods-wrapper" ref="foodScroll">
 			<ul>
 				<!-- 專場 -->
-				<!-- <li class="container-list">
+				<li class="container-list">
 					<div v-for="item in container.operation_source_list">
 						<img :src="item.pic_url">
 					</div>
-				</li> -->
+				</li>
 
 				<!-- 具體分類 -->
 				<li v-for="item in goods" class="food-list">
@@ -61,6 +61,9 @@
 </template>
 
 <script>
+	//導入BSscroll
+	import BScroll from 'better-scroll'
+
 	export default{
 			data(){
 				return{
@@ -79,6 +82,19 @@
 	        	that.goods = dataSource.data.food_spu_tags;
 	          // console.log(that.container);
 	          // console.log(that.goods);
+
+	          //調用滾動的初始化方法
+	          // that.initScroll();
+	          //開始時, DOM元素沒有渲染，即高度是有問題
+	          //在獲取到元素之後，且DOM已經被渲染，表示列表高度是沒有問題
+
+	          // nextTick
+	          that.$nextTick( ()=>{
+	          	//DOM已經更新
+	          	that.initScroll();
+	          });
+
+
 	        }
 	      })
 	      .catch(function (error) { //出錯處理
@@ -88,6 +104,12 @@
 	  methods: {
 	  	head_bg(imgName){
 	  		return "background-image: url(" + imgName + ")";
+	  	},
+	  	//滾動初始化
+	  	initScroll(){
+	  		// ref屬性就是用來綁定某個DOM元素或某個組件，然後在this.$refs裡面
+	  		new BScroll(this.$refs.menuScroll);
+	  		new BScroll(this.$refs.foodScroll);
 	  	}
 	  }
 	  // computed: {	//計算屬性(不能傳遞參數)
