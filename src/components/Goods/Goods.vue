@@ -24,14 +24,14 @@
 		<div class="foods-wrapper" ref="foodScroll">
 			<ul>
 				<!-- 專場 -->
-				<li class="container-list">
+				<li class="container-list food-list-hook">
 					<div v-for="item in container.operation_source_list">
 						<img :src="item.pic_url">
 					</div>
 				</li>
 
 				<!-- 具體分類 -->
-				<li v-for="item in goods" class="food-list">
+				<li v-for="item in goods" class="food-list food-list-hook">
 					<h3 class="title">{{item.name}}</h3>
 					<!-- 具體商品列表 -->
 					<ul>
@@ -68,7 +68,11 @@
 			data(){
 				return{
 					container: {},
-					goods: []
+					goods: [],
+					listHeight: [],
+					scrollY: 0,
+					menuScroll: {},
+					foodScroll: {}
 				}
 			},
 			created(){  //發起異步請求，獲取數據
@@ -92,6 +96,10 @@
 	          that.$nextTick( ()=>{
 	          	//DOM已經更新
 	          	that.initScroll();
+
+	          	//計算分類區間高度
+	          	that.calculateHeight();
+
 	          });
 
 
@@ -108,15 +116,50 @@
 	  	//滾動初始化
 	  	initScroll(){
 	  		// ref屬性就是用來綁定某個DOM元素或某個組件，然後在this.$refs裡面
-	  		new BScroll(this.$refs.menuScroll);
-	  		new BScroll(this.$refs.foodScroll);
+	  		this.menuScroll = new BScroll(this.$refs.menuScroll);
+	  		this.foodScroll = new BScroll(this.$refs.foodScroll, {
+	  			probeType: 3
+	  		});
+
+	  		//添加滾動監聽事件
+	  		this.foodScroll.on('scroll', (pos) => {
+	  			// console.log(pos.y);
+	  			this.scrollY = Math.abs(Math.round(pos.y));
+	  		});
+	  	},
+	  	calculateHeight(){
+	  		//通過$refs獲取到對應的元素
+	  		let foodlist = this.$refs.foodScroll.getElementsByClassName('food-list-hook');
+
+	  		//添加到數組區間
+	  		// 0~218 第一個區間(專場)
+	  		// 219~1477 第二個區間(熱銷)
+	  		let height = 0;
+	  		this.listHeight.push(height);
+	  		for(let i=0; i<foodlist.length; i++){
+	  			let item = foodlist[i];
+
+	  			//累加
+	  			height += item.clientHeight;
+	  			this.listHeight.push(height);
+	  		}
+	  	}
+	  },
+	  computed: {	//計算屬性(不能傳遞參數)
+	  	currentIndex(){	//根據右側滾動位置，確定對應的索引下標
+	  		for (let i=0; i<this.listHeight.length; i++){
+	  			//獲取商品區間的範圍
+	  			let height1 = this.listHeight[i];
+	  			let height2 = this.listHeight[i+1];
+
+	  			//是否在上述區間中
+	  			if(this.scrollY >= height1 && this.scrollY < height2){
+	  				console.log(1);
+	  				return 1;
+	  			}
+	  		}
 	  	}
 	  }
-	  // computed: {	//計算屬性(不能傳遞參數)
-	  // 	head_bg(){
-	  // 		return
-	  // 	}
-	  // }
 	}
 </script>
 
