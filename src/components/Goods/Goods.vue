@@ -4,14 +4,14 @@
 		<div class="menu-wrapper" ref="menuScroll">
 			<ul>
 				<!-- 專場 -->
-				<li class="menu-item">
+				<li class="menu-item" :class="{'current':currentIndex===0}" @click="selectMenu(0)">
 					<p class="text">
 						<img :src="container.tag_icon" v-if="container.tag_icon" class="icon">
 						{{container.tag_name}}
 					</p>
 				</li>
 
-				<li class="menu-item" v-for="item in goods">
+				<li class="menu-item" v-for="(item,index) in goods" :class="{'current':currentIndex===index+1}" @click="selectMenu(index+1)">
 					<p class="text">
 						<img :src="item.icon" v-if="item.icon" class="icon">
 						{{item.name}}
@@ -71,8 +71,8 @@
 					goods: [],
 					listHeight: [],
 					scrollY: 0,
-					menuScroll: {},
-					foodScroll: {}
+					menuScroll2: {},
+					foodScroll2: {}
 				}
 			},
 			created(){  //發起異步請求，獲取數據
@@ -116,13 +116,15 @@
 	  	//滾動初始化
 	  	initScroll(){
 	  		// ref屬性就是用來綁定某個DOM元素或某個組件，然後在this.$refs裡面
-	  		this.menuScroll = new BScroll(this.$refs.menuScroll);
-	  		this.foodScroll = new BScroll(this.$refs.foodScroll, {
+	  		this.menuScroll2 = new BScroll(this.$refs.menuScroll, {
+	  			click: true
+	  		});
+	  		this.foodScroll2 = new BScroll(this.$refs.foodScroll, {
 	  			probeType: 3
 	  		});
 
 	  		//添加滾動監聽事件
-	  		this.foodScroll.on('scroll', (pos) => {
+	  		this.foodScroll2.on('scroll', (pos) => {
 	  			// console.log(pos.y);
 	  			this.scrollY = Math.abs(Math.round(pos.y));
 	  		});
@@ -140,9 +142,19 @@
 	  			let item = foodlist[i];
 
 	  			//累加
-	  			height += item.clientHeight;
+	  			height += item.clientHeight; //獲取該項項目高度
 	  			this.listHeight.push(height);
 	  		}
+	  	},
+	  	selectMenu(index){
+	  		console.log(index);
+	  		let foodlist = this.$refs.foodScroll.getElementsByClassName('food-list-hook'); 
+
+	  		//根據下標，滾動到相對應的元素
+	  		let el = foodlist[index];
+
+	  		//滾動到對應元素的位置
+	  		this.foodScroll2.scrollToElement(el,250);
 	  	}
 	  },
 	  computed: {	//計算屬性(不能傳遞參數)
@@ -153,11 +165,12 @@
 	  			let height2 = this.listHeight[i+1];
 
 	  			//是否在上述區間中
-	  			if(this.scrollY >= height1 && this.scrollY < height2){
-	  				console.log(1);
-	  				return 1;
+	  			if(!height2 || (this.scrollY >= height1 && this.scrollY < height2)){
+	  				// console.log(i);
+	  				return i;
 	  			}
 	  		}
+	  		return 0;
 	  	}
 	  }
 	}

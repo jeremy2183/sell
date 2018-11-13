@@ -22,12 +22,17 @@
 */
 
 .goods .menu-wrapper{
-	flex: 0 0 85px;
+	flex: 0 0 86px;
 	background: #f4f4f4;
 }
 .goods .menu-wrapper .menu-item{
 	padding: 16px 23px 15px 10px;
 	border-bottom: 1px solid #e4d4d4;
+}
+.goods .menu-wrapper .menu-item.current{
+	background: #fff;
+	font-weight: bold;
+	margin-top: -1px;
 }
 .goods .menu-wrapper .menu-item .text{
 	font-size: 13px;
