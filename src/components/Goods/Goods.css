@@ -13,7 +13,7 @@
 /*
 	flex: flex-grow | flex-shrink | flex-basis;
 
-	flex-grow必邊，其餘可選
+	flex-grow必選，其餘可選
 	默認: flex 0 1 auto;
 	flex-grow(延伸): 定義放大比例，默認是0，如果存在剩餘空間，也不會放大;
 	flex-shrink(收縮比): 定義縮小比例，默認1，如果空間不足，該項目將狀被縮小，flex-shrink屬性為0時，其他項目為1，則空間不足時，前者不縮小;

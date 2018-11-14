@@ -57,6 +57,9 @@
 				</li>
 			</ul>
 		</div>
+	
+		<Shopcart :shipping_fee_tip="poiInfo.shipping_fee_tip" :min_price_tip="poiInfo.min_price_tip"></Shopcart>
+
 	</div>
 </template>
 
@@ -64,11 +67,16 @@
 	//導入BSscroll
 	import BScroll from 'better-scroll'
 
+	//導入Shopcart組件
+	import Shopcart from 'components/Shopcart/Shopcart'
+
+
 	export default{
 			data(){
 				return{
 					container: {},
 					goods: [],
+					poiInfo: {},
 					listHeight: [],
 					scrollY: 0,
 					menuScroll2: {},
@@ -84,6 +92,7 @@
 	        if(dataSource.code == 0){
 	        	that.container = dataSource.data.container_operation_source;
 	        	that.goods = dataSource.data.food_spu_tags;
+	        	that.poiInfo = dataSource.data.poi_info;
 	          // console.log(that.container);
 	          // console.log(that.goods);
 
@@ -147,7 +156,7 @@
 	  		}
 	  	},
 	  	selectMenu(index){
-	  		console.log(index);
+	  		// console.log(index);
 	  		let foodlist = this.$refs.foodScroll.getElementsByClassName('food-list-hook'); 
 
 	  		//根據下標，滾動到相對應的元素
@@ -172,6 +181,10 @@
 	  		}
 	  		return 0;
 	  	}
+	  },
+	  components: {
+	  	BScroll,
+	  	Shopcart
 	  }
 	}
 </script>
