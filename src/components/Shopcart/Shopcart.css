@@ -26,9 +26,26 @@
 	color: #c4c4c4;
 	line-height: 50px;
 }
+.shopcart .content-left .logo-wrapper .num{
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	border-radius: 50%;
+	font-size: 9px;
+	color: #fff;
+	background: #f00;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 .shopcart .content-left .desc-wrapper{
 	float: left;
 	margin-left: 13px;
+}
+.shopcart .content-left .desc-wrapper .total-price{
+	font-size: 18px;
+	line-height: 33px;
+	color: #fff;
 }
 .shopcart .content-left .desc-wrapper .tip{
 	font-size: 12px;
