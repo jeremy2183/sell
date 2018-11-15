@@ -32,14 +32,14 @@
 				type: Array,
 				default(){
 					return [
-						{
-							min_price: 10,
-							count: 3
-						},
-						{
-							min_price: 7,
-							count: 5
-						}
+						// {
+						// 	min_price: 10,
+						// 	count: 3
+						// },
+						// {
+						// 	min_price: 7,
+						// 	count: 5
+						// }
 					];
 				}
 			}

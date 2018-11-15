@@ -35,3 +35,12 @@
 	top: 3px;
 	z-index: -1;
 }
+
+
+/* +- 動畫效果 */
+.move-enter-active,.move-leave-active{
+	transition: all .5s linear;
+}
+.move-enter,.move-leave-to{
+	transform: translateX(20px) rotate(180deg);
+}

@@ -53,7 +53,7 @@
 							</div>
 
 							<div class="cartcontrol-wrapper">
-								<Cartcontrol :food2 = 'food'></Cartcontrol>
+								<Cartcontrol :food='food'></Cartcontrol>
 							</div>
 						</li>
 					</ul>
@@ -62,7 +62,7 @@
 			</ul>
 		</div>
 	
-		<Shopcart :shipping_fee_tip="poiInfo.shipping_fee_tip" :min_price_tip="poiInfo.min_price_tip"></Shopcart>
+		<Shopcart :shipping_fee_tip="poiInfo.shipping_fee_tip" :min_price_tip="poiInfo.min_price_tip" :selectFoods="selectFoods" ></Shopcart>
 
 	</div>
 </template>
@@ -185,6 +185,18 @@
 	  			}
 	  		}
 	  		return 0;
+	  	},
+	  	selectFoods(){
+	  		var foods = [];
+	  		this.goods.forEach((good)=>{
+	  			good.spus.forEach((food)=>{
+	  				if(food.count > 0){
+	  					// console.log(food);
+	  					foods.push(food);
+	  				}
+	  			});
+	  		});
+	  		return foods;
 	  	}
 	  },
 	  components: {
