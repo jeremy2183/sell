@@ -53,7 +53,7 @@
 							</div>
 
 							<div class="cartcontrol-wrapper">
-								<Cartcontrol></Cartcontrol>
+								<Cartcontrol :food2 = 'food'></Cartcontrol>
 							</div>
 						</li>
 					</ul>
@@ -133,7 +133,8 @@
 	  			click: true
 	  		});
 	  		this.foodScroll2 = new BScroll(this.$refs.foodScroll, {
-	  			probeType: 3
+	  			probeType: 3,
+	  			click: true
 	  		});
 
 	  		//添加滾動監聽事件
