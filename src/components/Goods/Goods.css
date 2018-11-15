@@ -97,6 +97,7 @@
 .goods .foods-wrapper .food-list .food-item{
 	display: flex;
 	margin-bottom: 25px;
+	position: relative;
 }
 
 .goods .foods-wrapper .food-list .food-item .icon{
@@ -152,4 +153,10 @@
 .goods .foods-wrapper .food-list .food-item .content .price .unit{
 	font-size: 12px;
 	color: #bfbfbf;
+}
+
+.goods .foods-wrapper .food-list .food-item .cartcontrol-wrapper{
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }

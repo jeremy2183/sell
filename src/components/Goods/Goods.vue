@@ -51,6 +51,10 @@
 									<span class="unit">/{{food.unit}}</span>
 								</p>
 							</div>
+
+							<div class="cartcontrol-wrapper">
+								<Cartcontrol></Cartcontrol>
+							</div>
 						</li>
 					</ul>
 
@@ -66,10 +70,10 @@
 <script>
 	//導入BSscroll
 	import BScroll from 'better-scroll'
-
 	//導入Shopcart組件
 	import Shopcart from 'components/Shopcart/Shopcart'
-
+	//導入Cartcontrol
+	import Cartcontrol from 'components/Cartcontrol/Cartcontrol'
 
 	export default{
 			data(){
@@ -184,7 +188,8 @@
 	  },
 	  components: {
 	  	BScroll,
-	  	Shopcart
+	  	Shopcart,
+	  	Cartcontrol
 	  }
 	}
 </script>
