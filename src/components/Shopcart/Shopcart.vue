@@ -14,6 +14,7 @@
 		<div class="content-right" :class="{highlight: totalCount>0}">
 			{{payStr}}
 		</div>
+
 		<div class="shopcart-list">
 			<div class="list-top" v-if="poiInfo.discounts2">
 				{{poiInfo.discounts2[0].info}}
@@ -32,7 +33,7 @@
 							<div class="desc-left">
 								<p class="name">{{food.name}}</p>
 								<p class="unit" v-show="!food.description">{{food.unit}}</p>
-								<p class="description" v-show="!food.description">{{food.description}}</p>
+								<p class="description" v-show="food.description">{{food.description}}</p>
 							</div>
 							<div class="desc-right">
 								<div class="price">¥{{food.min_price}}</div>
@@ -107,6 +108,9 @@
 					return this.poiInfo.min_price_tip;
 				}
 			}
+		},
+		components: {
+			Cartcontrol
 		}
 	}
 </script>
