@@ -1,7 +1,7 @@
 <template>
 	<div class="shopcart" :class="{highlight: totalCount>0}">
 		<div class="content-left">
-			<div class="logo-wrapper" :class="{highlight: totalCount>0}">
+			<div class="logo-wrapper" :class="{highlight: totalCount>0}" @click="toggleList">
 				<span class="logo icon-shopping_cart" :class="{highlight: totalCount>0}"></span>
 				<i class="num" v-show="totalCount">{{totalCount}}</i>
 			</div>
@@ -15,7 +15,7 @@
 			{{payStr}}
 		</div>
 
-		<div class="shopcart-list">
+		<div class="shopcart-list" v-show="listShow" :class="{show: listShow}">
 			<div class="list-top" v-if="poiInfo.discounts2">
 				{{poiInfo.discounts2[0].info}}
 			</div>
@@ -54,6 +54,11 @@
 	//導入Cartcontrol
 	import Cartcontrol from 'components/Cartcontrol/Cartcontrol'
 	export default {
+		data() {
+			return {
+				fold: true
+			}
+		},
 		props: {
 			// min_price_tip: {
 			// 	type: String,
@@ -107,6 +112,22 @@
 				}else{
 					return this.poiInfo.min_price_tip;
 				}
+			},
+			listShow(){
+				if(!this.totalCount){	//個數為0
+					this.fold = true;	
+					return false;
+				}
+				let show = !this.fold;
+				return show;
+			}
+		},
+		methods: {
+			toggleList(){
+				if(!this.totalCount){	//個數為0
+					return;
+				}
+				this.fold = !this.fold
 			}
 		},
 		components: {
