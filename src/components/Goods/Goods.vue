@@ -16,6 +16,9 @@
 						<img :src="item.icon" v-if="item.icon" class="icon">
 						{{item.name}}
 					</p>
+					<i class="num" v-show="calculateCount(item.spus)">
+						{{calculateCount(item.spus)}}
+					</i>
 				</li>
 			</ul>
 		</div>
@@ -169,6 +172,15 @@
 
 	  		//滾動到對應元素的位置
 	  		this.foodScroll2.scrollToElement(el,250);
+	  	},
+	  	calculateCount(spus){
+	  		let count = 0;
+	  		spus.forEach((food)=>{
+	  			if(food.count>0){
+	  				count += food.count;
+	  			}
+	  		});
+	  		return count;
 	  	}
 	  },
 	  computed: {	//計算屬性(不能傳遞參數)

@@ -28,6 +28,7 @@
 .goods .menu-wrapper .menu-item{
 	padding: 16px 23px 15px 10px;
 	border-bottom: 1px solid #e4d4d4;
+	position: relative;
 }
 .goods .menu-wrapper .menu-item.current{
 	background: #fff;
@@ -53,11 +54,23 @@
 
 /* 專場 */
 .goods .menu-wrapper .menu-item .text .icon{
-	width: 15px;
+	width: 15px;.goods .menu-wrapper .menu-item .text .icon
 	height: 15px;
 	vertical-align: middle;
 }
-
+.goods .menu-wrapper .menu-item .num{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	color: #fff;
+	background: red;
+	text-align: center;
+	font-size: 7px;
+	line-height: 13px;
+}
 .goods .foods-wrapper{
 	flex: 1;
 	/*background: blue;*/
