@@ -21,12 +21,12 @@
 			</div>
 			<div class="list-header">
 				<div class="title">1號口袋</div>
-				<div class="empty">
+				<div class="empty" @click="emptyFn">
 					<img src="./ash_bin.png"/>
 					<span>清空購物車</span>
 				</div>				
 			</div>
-			<div class="list-content">
+			<div class="list-content" ref="listContent">
 				<ul>
 					<li class="food" v-for="food in selectFoods">
 						<div class="desc">
@@ -53,6 +53,8 @@
 <script>
 	//導入Cartcontrol
 	import Cartcontrol from 'components/Cartcontrol/Cartcontrol'
+	//導入BSscroll
+	import BScroll from 'better-scroll'
 	export default {
 		data() {
 			return {
@@ -119,6 +121,20 @@
 					return false;
 				}
 				let show = !this.fold;
+
+				// BScroll相關
+				if(show){
+					//DOM更新時的處理
+					this.$nextTick(()=>{
+						if(!this.shopScroll){	//DOM更新前
+							this.shopScroll = new BScroll(this.$refs.listContent, {
+								click: true
+							});
+						}else {	//DOM更新後
+							this.shopScroll.refresh();
+						}
+					});
+				}
 				return show;
 			}
 		},
@@ -128,10 +144,16 @@
 					return;
 				}
 				this.fold = !this.fold
+			},
+			emptyFn(){
+				this.selectFoods.forEach((food)=>{
+					food.count = 0;
+				})
 			}
 		},
 		components: {
-			Cartcontrol
+			Cartcontrol,
+			BScroll
 		}
 	}
 </script>
