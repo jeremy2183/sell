@@ -189,7 +189,7 @@
 	  		return count;
 	  	},
 	  	showDetail(food){
-	  		//傳值 (子組件傳至父組件)
+	  		//傳值
 	  		this.selectFood = food;
 
 	  		//顯示詳情頁

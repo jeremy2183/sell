@@ -1,7 +1,8 @@
 <template>
-	<div class="foods" v-show="showFlag">
-		
-	</div>
+	<transition name="detail">
+		<div class="foods" v-show="showFlag" @click="closeView">
+		</div>
+	</transition>
 </template>
 
 <script>
@@ -20,6 +21,9 @@
 			//父組件是可以調用子組件的方法
 			showView(){
 				this.showFlag = true;
+			},
+			closeView(){
+				this.showFlag = false;
 			}
 		}
 	}

@@ -7,3 +7,11 @@
 	width: 100%;
 	z-index: 90;
 }
+
+.detail-enter-active, .detail-leave-active{
+  transition: 1.0s;
+}
+.detail-enter, .detail-leave-to{
+  transform: translateX(100%);
+
+}
