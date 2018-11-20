@@ -15,3 +15,79 @@
   transform: translateX(100%);
 
 }
+
+.foods .food-wrapper .food-content{
+
+}
+.foods .food-wrapper .food-content .img-wrapper{
+	position: relative;
+	width: 100%;
+	height: 0;
+
+	/*  高度如何撐開 ? 
+	在定位中，使用padding-top或padding-bottom設置為100%，
+	其實盒子高度會根據盒子的寬度進行計算 */
+	padding-top: 100%;
+}
+.foods .food-wrapper .food-content .img-wrapper .food-img{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}	
+.foods .food-wrapper .food-content .img-wrapper .close-bt{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	text-align: center;
+	font-size: 30px;
+	color: #fff;
+	background: #7f7f7f;
+	border-radius: 50%;
+}
+.foods .food-wrapper .food-content .img-wrapper .share-bt,
+.foods .food-wrapper .food-content .img-wrapper .more-bt{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 10px;
+}
+.foods .food-wrapper .food-content .img-wrapper .share-bt{
+	right: 50px;
+}
+.foods .food-wrapper .food-content .img-wrapper .more-bt{
+	right: 10px;
+}
+
+.foods .food-wrapper .food-content .content-wrapper{
+	padding: 0 0 16px 16px;
+}
+.foods .food-wrapper .food-content .content-wrapper .name{
+	font-size: 15px;
+	color: #333;
+	line-height: 30px;
+	font-weight: bold;
+}
+.foods .food-wrapper .food-content .content-wrapper .saled{
+	font-size: 11px;
+	color: #9d9d9d;
+	margin-bottom: 6px;
+}
+.foods .food-wrapper .food-content .content-wrapper .product{
+	height: 15px;
+	margin-bottom: 16px;
+}
+.foods .food-wrapper .food-content .content-wrapper .price{
+	font-size: 0;
+}
+.foods .food-wrapper .food-content .content-wrapper .price .text{
+	font-size: 17px;
+	color: #fb4e44;
+}
+.foods .food-wrapper .food-content .content-wrapper .price .unit{
+	font-size: 11px;
+	color: #9d9d9d;
+}
