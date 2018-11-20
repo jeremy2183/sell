@@ -1,0 +1,9 @@
+.foods{
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 51px;
+	background: #fff;
+	width: 100%;
+	z-index: 90;
+}

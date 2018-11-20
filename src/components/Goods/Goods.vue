@@ -38,7 +38,7 @@
 					<h3 class="title">{{item.name}}</h3>
 					<!-- 具體商品列表 -->
 					<ul>
-						<li v-for="food in item.spus" class="food-item">
+						<li v-for="food in item.spus" class="food-item" @click="showDetail(food)">
 							<div class="icon" :style="head_bg(food.picture)"></div>
 
 							<div class="content">
@@ -65,8 +65,11 @@
 			</ul>
 		</div>
 	
+		<!-- 購物車 -->
 		<Shopcart :poiInfo="poiInfo" :selectFoods="selectFoods" ></Shopcart>
 
+		<!-- 商品詳情 -->
+		<Food :food="selectFood" ref="foodView"></Food>
 	</div>
 </template>
 
@@ -77,6 +80,8 @@
 	import Shopcart from 'components/Shopcart/Shopcart'
 	//導入Cartcontrol
 	import Cartcontrol from 'components/Cartcontrol/Cartcontrol'
+	//導入Food組件
+	import Food from 'components/Food/Food'
 
 	export default{
 			data(){
@@ -87,7 +92,8 @@
 					listHeight: [],
 					scrollY: 0,
 					menuScroll2: {},
-					foodScroll2: {}
+					foodScroll2: {},
+					selectFood: {}
 				}
 			},
 			created(){  //發起異步請求，獲取數據
@@ -181,6 +187,13 @@
 	  			}
 	  		});
 	  		return count;
+	  	},
+	  	showDetail(food){
+	  		//傳值 (子組件傳至父組件)
+	  		this.selectFood = food;
+
+	  		//顯示詳情頁
+	  		this.$refs.foodView.showView();
 	  	}
 	  },
 	  computed: {	//計算屬性(不能傳遞參數)
@@ -214,7 +227,8 @@
 	  components: {
 	  	BScroll,
 	  	Shopcart,
-	  	Cartcontrol
+	  	Cartcontrol,
+	  	Food
 	  }
 	}
 </script>
