@@ -110,3 +110,36 @@
 	right: 12px;
 	bottom: 10px;
 }
+
+.foods .food-wrapper .rating-wrapper{
+	padding: 16px;
+}
+.foods .food-wrapper .rating-wrapper .rating-title{
+	padding: 16px 16px 16px 0;
+}
+.foods .food-wrapper .rating-wrapper .rating-title .like-ratio{
+	float: left;
+	font-size: 0;
+}
+.foods .food-wrapper .rating-wrapper .rating-title .like-ratio .title{
+	font-size: 13px;
+}
+.foods .food-wrapper .rating-wrapper .rating-title .like-ratio .ratio{
+	font-size: 11px;
+}
+.foods .food-wrapper .rating-wrapper .rating-title .like-ratio .ratio i{
+	color: #fb4e44;
+	font-size: 11px;
+}
+.foods .food-wrapper .rating-wrapper .rating-title .snd-title{
+	float: right;
+}
+.foods .food-wrapper .rating-wrapper .rating-title .snd-title .text{
+
+}
+.foods .food-wrapper .rating-wrapper .rating-title .snd-title .icon{
+
+}
+.foods .food-wrapper .rating-wrapper .rating-content{
+
+}

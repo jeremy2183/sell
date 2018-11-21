@@ -1,6 +1,6 @@
 <template>
 	<transition name="detail">
-		<div class="foods" v-show="showFlag">
+		<div class="foods" v-show="showFlag" ref="foodView">
 			<div class="food-wrapper">
 				<div class="food-content">
 					<div class="img-wrapper">
@@ -23,6 +23,23 @@
 						<div class="buy" v-show="!food.count || food.count==0" @click="addFirst">選規格</div>
 					</div>
 				</div>
+				<Split></Split>
+				<div class="rating-wrapper">
+					<div class="rating-title">
+						<div class="like-ratio" v-if="food.rating">
+							<span class="title">{{food.rating.title}}</span>
+							<span class="ratio">(
+								{{food.rating.like_ratio_desc}}
+								<i>{{food.rating.like_ratio}}</i>
+							)</span>
+						</div>
+						<div class="snd-title" v-if="food.rating">
+							<span class="text">{{food.rating.snd_title}}</span>
+							<span class="icon icon-keyboard_arrow_right"></span>
+						</div>
+					</div>
+					<ul class="rating-content"></ul>
+				</div>
 			</div>
 		</div>
 	</transition>
@@ -33,6 +50,11 @@
 	import Cartcontrol from 'components/Cartcontrol/Cartcontrol'
 	//導入Vue
 	import Vue from 'vue'
+	//導入BSscroll
+	import BScroll from 'better-scroll'
+	//導入Split
+	import Split from 'components/Split/Split'
+
 	export default{
 		data(){
 			return {
@@ -48,6 +70,17 @@
 			//父組件是可以調用子組件的方法
 			showView(){
 				this.showFlag = true;
+
+				//Bscroll初始化
+				this.$nextTick(()=>{
+					if(!this.scroll){
+						this.scroll = new BScroll(this.$refs.foodView, {
+								click: true
+						});
+					} else {
+						this.scroll.refresh();
+					}
+				});
 			},
 			closeView(){
 				this.showFlag = false;
@@ -57,7 +90,9 @@
 			}
 		},
 		components: {
-			Cartcontrol
+			Cartcontrol,
+			BScroll,
+			Split
 		}
 	}
 </script>
