@@ -38,7 +38,24 @@
 							<span class="icon icon-keyboard_arrow_right"></span>
 						</div>
 					</div>
-					<ul class="rating-content"></ul>
+					<ul class="rating-content" v-if="food.rating">
+						<li v-for="comment in food.rating.comment_list" class="comment-item">
+							<div class="comment-header">
+								<img :src="comment.user_icon">
+							</div>
+							<div class="comment-main">
+								<div class="user">
+									{{comment.user_name}}
+								</div>
+								<div class="time">
+									{{comment.comment_time}}
+								</div>
+								<div class="content">
+									{{comment.comment_content}}
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

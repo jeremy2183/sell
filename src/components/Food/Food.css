@@ -133,13 +133,27 @@
 }
 .foods .food-wrapper .rating-wrapper .rating-title .snd-title{
 	float: right;
+	font-size: 0;
 }
-.foods .food-wrapper .rating-wrapper .rating-title .snd-title .text{
-
+.foods .food-wrapper .rating-wrapper .rating-title .snd-title .text,
+.foods .food-wrapper .rating-wrapper .rating-title .snd-title .icon{
+	font-size: 13px;
+	color: #9d9d9d;
 }
 .foods .food-wrapper .rating-wrapper .rating-title .snd-title .icon{
-
+	margin-left: 12px;
 }
-.foods .food-wrapper .rating-wrapper .rating-content{
-
+.foods .food-wrapper .rating-wrapper .rating-content .comment-item{
+	padding: 15px 14px 17px 0;
+	border-bottom: 1px solid #f4f4f4;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+}
+.foods .food-wrapper .rating-wrapper .rating-content .comment-item .comment-header{
+	flex: 0 0 41px;
+	margin-right: 10px;
+}
+.foods .food-wrapper .rating-wrapper .rating-content .comment-item .comment-main{
+	display: 1;
 }
