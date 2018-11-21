@@ -17,7 +17,10 @@
 							<span class="text">¥{{food.min_price}}</span>
 							<span class="unit">/{{food.unit}}</span>
 						</p>
-
+						<div class="cartcontrol-wrapper">
+							<Cartcontrol :food='food'></Cartcontrol>
+						</div>
+						<div class="buy" v-show="!food.count || food.count==0" @click="addFirst">選規格</div>
 					</div>
 				</div>
 			</div>
@@ -26,6 +29,10 @@
 </template>
 
 <script>
+	//導入Cartcontrol
+	import Cartcontrol from 'components/Cartcontrol/Cartcontrol'
+	//導入Vue
+	import Vue from 'vue'
 	export default{
 		data(){
 			return {
@@ -44,7 +51,13 @@
 			},
 			closeView(){
 				this.showFlag = false;
+			},
+			addFirst(){
+				Vue.set(this.food,'count',1);
 			}
+		},
+		components: {
+			Cartcontrol
 		}
 	}
 </script>

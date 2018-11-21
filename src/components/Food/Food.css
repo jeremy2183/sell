@@ -17,7 +17,7 @@
 }
 
 .foods .food-wrapper .food-content{
-
+	
 }
 .foods .food-wrapper .food-content .img-wrapper{
 	position: relative;
@@ -64,6 +64,7 @@
 
 .foods .food-wrapper .food-content .content-wrapper{
 	padding: 0 0 16px 16px;
+	position: relative;
 }
 .foods .food-wrapper .food-content .content-wrapper .name{
 	font-size: 15px;
@@ -90,4 +91,22 @@
 .foods .food-wrapper .food-content .content-wrapper .price .unit{
 	font-size: 11px;
 	color: #9d9d9d;
+}
+.foods .food-wrapper .food-content .content-wrapper .cartcontrol-wrapper{
+	position: absolute;
+	right: 12px;
+	bottom: 10px;
+	padding: 2px;
+}
+.foods .food-wrapper .food-content .content-wrapper .buy{
+	width: 64px;
+	height: 30px;
+	font-size: 12px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 30px;
+	background:#ffd161;
+	position: absolute;
+	right: 12px;
+	bottom: 10px;
 }
