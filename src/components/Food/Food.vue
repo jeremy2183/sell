@@ -38,10 +38,12 @@
 							<span class="icon icon-keyboard_arrow_right"></span>
 						</div>
 					</div>
+
 					<ul class="rating-content" v-if="food.rating">
 						<li v-for="comment in food.rating.comment_list" class="comment-item">
 							<div class="comment-header">
-								<img :src="comment.user_icon">
+								<img :src="comment.user_icon" v-if="comment.user_icon">
+								<img src="./icon_poi_review_anonymity@2x.png" v-if="!comment.user_icon">
 							</div>
 							<div class="comment-main">
 								<div class="user">
@@ -56,6 +58,7 @@
 							</div>
 						</li>
 					</ul>
+
 				</div>
 			</div>
 		</div>
