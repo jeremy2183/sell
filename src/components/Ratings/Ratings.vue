@@ -41,7 +41,9 @@
 					</span>
 				</div>
 				<div class="labels-view">
-					
+					<span class="item" v-for="item in ratings.labels" :class="{'hightlight': item.label_star>0}">
+						{{item.content}}{{item.label_count}}
+					</span>
 				</div>
 				<div class="rating-list">
 					
