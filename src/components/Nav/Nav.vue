@@ -8,7 +8,7 @@
     	<i class="line"></i>
     </router-link>
     <router-link to="/ratings" class="nav-item">
-	    評價
+	    評價({{comment_num}})
 	    <i class="line"></i>
   	</router-link>
     <router-link to="/seller" class="nav-item">
@@ -20,7 +20,12 @@
 
 <script>
 	export default{
-
+		props: {
+			comment_num: {
+				type: Number,
+				default: 0
+			}
+		}
 	}
 </script>
 

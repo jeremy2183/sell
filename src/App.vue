@@ -4,7 +4,7 @@
     <Myheader :poiInfo2='poiInfo'></Myheader>
 
     <!-- nav -->
-    <Mynav></Mynav>
+    <Mynav :comment_num='comment_num'></Mynav>
 
     <!-- content -->
     <!-- <div class="content">
@@ -30,7 +30,8 @@ export default {
   data(){
     return{
       //header組件需要的信息(商家信息)
-      poiInfo: {}
+      poiInfo: {},
+      comment_num: 0
     }
   },
   created(){  //發起異步請求，獲取數據
@@ -44,6 +45,18 @@ export default {
         if(dataSource.code == 0){
           that.poiInfo = dataSource.data.poi_info;
           // console.log(that.poiInfo);
+        }
+      })
+      .catch(function (error) { //出錯處理
+        console.log(error);
+      });
+
+    //通過axios發起get請求
+    this.$axios.get('/api/ratings')
+      .then(function (response) { //獲取到數據
+        var dataSource = response.data;
+        if(dataSource.code == 0){
+          that.comment_num = dataSource.data.comment_num;
         }
       })
       .catch(function (error) { //出錯處理
