@@ -27,7 +27,25 @@
 					</div>
 				</div>
 			</div>
+
 			<Split></Split>
+
+			<div class="content">
+				<div class="rating-select" v-if="ratings.tab">
+					<span class="item">{{ratings.tab[0].comment_score_title}}</span>
+					<span class="item">{{ratings.tab[1].comment_score_title}}</span>
+					<span class="item">
+						<img src="./icon_sub_tab_dp_normal@2x.png">
+						{{ratings.tab[2].comment_score_title}}
+					</span>
+				</div>
+				<div class="labels-view">
+					
+				</div>
+				<div class="rating-list">
+					
+				</div>
+			</div>
 		</div>
 	</div>
 </template>

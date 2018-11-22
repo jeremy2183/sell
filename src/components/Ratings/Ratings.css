@@ -76,3 +76,41 @@
 	font-size: 11px;
 	color: #999999;
 }
+
+/*content*/
+.ratings .ratings-wrapper .content{
+	padding: 16px;
+}
+.ratings .ratings-wrapper .content .rating-select{
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 0;
+	border: 1px solid #ffb000;
+	margin-bottom: 11px;
+	border-radius: 3px;
+}
+.ratings .ratings-wrapper .content .rating-select .item{
+	font-size: 14px;
+	display: inline-block;
+	width: 33.3%;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	border-right: 1px solid #ffb000;
+	box-sizing: border-box;
+	color: #ffb000;
+}
+.ratings .ratings-wrapper .content .rating-select .item:last-child{
+	border-right: 0;
+}
+.ratings .ratings-wrapper .content .rating-select .item:last-child img{
+	height: 14px;
+	vertical-align: middle;
+}
+.ratings .ratings-wrapper .content .labels-view{
+
+}
+
+.ratings .ratings-wrapper .content .rating-list{
+
+}
