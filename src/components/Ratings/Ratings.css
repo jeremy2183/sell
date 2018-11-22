@@ -15,6 +15,64 @@
 	flex: 1;
 	padding-left: 26px;
 }
+.ratings .ratings-wrapper .overview .overview-left .comment-score{
+	float: left;
+	width: 48px;
+	text-align: center;
+	margin-right: 28px;
+}
+.ratings .ratings-wrapper .overview .overview-left .comment-score .score{
+	color: #ffb000;
+	font-size: 23px;
+	font-weight: 800;
+	margin-bottom: 9px;
+}
+.ratings .ratings-wrapper .overview .overview-left .comment-score .text{
+	color: #666666;
+	font-size: 11px;
+}
+
+/*overview-left*/
+.ratings .ratings-wrapper .overview .overview-left .other-score{
+	float: left;
+	margin-top: 3px;
+}
+.ratings .ratings-wrapper .overview .overview-left .other-score .quality-score{
+	margin-bottom: 14px;
+}
+.ratings .ratings-wrapper .overview .overview-left .other-score .item{
+	height: 11px;
+}
+.ratings .ratings-wrapper .overview .overview-left .other-score .item .text{
+	font-size: 11px;
+	color: #666666;
+	margin-right: 11px;
+	float: left;
+}
+.ratings .ratings-wrapper .overview .overview-left .other-score .item .star{
+	float: left;
+	margin-right: 11px;
+}
+.ratings .ratings-wrapper .overview .overview-left .other-score .score{
+	font-size: 11px;
+	float: left;
+	color: #ffb000;
+}
+
+/*overview-right*/
 .ratings .ratings-wrapper .overview .overview-right{
 	flex: 0 0 100px;
+	text-align: center;
+	border-left: 1px solid #9d9d9d;
+}
+.ratings .ratings-wrapper .overview .overview-right .delivery-score .score{
+	font-size: 19px;
+	font-weight: 500;
+	color: #999999;
+	margin-bottom: 10px;
+	margin-top: 3px;
+}
+.ratings .ratings-wrapper .overview .overview-right .delivery-score .text{
+	font-size: 11px;
+	color: #999999;
 }

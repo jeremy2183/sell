@@ -27,6 +27,7 @@
 					</div>
 				</div>
 			</div>
+			<Split></Split>
 		</div>
 	</div>
 </template>
@@ -34,6 +35,9 @@
 <script>
 	//導入Star組件
 	import Star from 'components/Star/Star'
+	//導入Split
+	import Split from 'components/Split/Split'
+
 	export default{
 		data(){
 			return{
@@ -55,14 +59,12 @@
       });
 		},
 		components: {
-			Star
+			Star,
+			Split
 		}
 	}
 </script>
 
 <style>
 	@import url(Ratings.css);
-	.ratings{
-		/*text-align: center;*/
-	}
 </style>
