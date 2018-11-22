@@ -32,10 +32,11 @@
 
 			<div class="content">
 				<div class="rating-select" v-if="ratings.tab">
-					<span class="item">{{ratings.tab[0].comment_score_title}}</span>
-					<span class="item">{{ratings.tab[1].comment_score_title}}</span>
-					<span class="item">
-						<img src="./icon_sub_tab_dp_normal@2x.png">
+					<span class="item" @click="selectTypeFn(2)" :class="{'active': selectType==2}">{{ratings.tab[0].comment_score_title}}</span>
+					<span class="item" @click="selectTypeFn(1)" :class="{'active': selectType==1}">{{ratings.tab[1].comment_score_title}}</span>
+					<span class="item" @click="selectTypeFn(0)" :class="{'active': selectType==0}">
+						<img src="./icon_sub_tab_dp_normal@2x.png" v-show="selectType!=0">
+						<img src="./icon_sub_tab_dp_highlighted@2x.png" v-show="selectType==0">
 						{{ratings.tab[2].comment_score_title}}
 					</span>
 				</div>
@@ -56,10 +57,15 @@
 	//導入Split
 	import Split from 'components/Split/Split'
 
+	const ALL = 2;	//全部
+	const PICTURE = 1;	//帶圖片
+	const COMMENT = 0;	//點評
+
 	export default{
 		data(){
 			return{
 				ratings: {},
+				selectType: ALL
 			}
 		},
 		created(){
@@ -75,6 +81,11 @@
       .catch(function (error) { //出錯處理
         console.log(error);
       });
+		},
+		methods: {
+			selectTypeFn(type) {
+				this.selectType = type;
+			}
 		},
 		components: {
 			Star,

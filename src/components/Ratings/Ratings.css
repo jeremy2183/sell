@@ -107,6 +107,10 @@
 	height: 14px;
 	vertical-align: middle;
 }
+.ratings .ratings-wrapper .content .rating-select .item.active{
+	background: #ffb000;
+	color: #000;
+}
 .ratings .ratings-wrapper .content .labels-view{
 
 }
