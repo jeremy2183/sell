@@ -1,5 +1,5 @@
 <template>
-	<div class="ratings">
+	<div class="ratings" ref="ratingView">
 		<div class="ratings-wrapper">
 			<div class="overview">
 				<div class="overview-left">
@@ -45,9 +45,29 @@
 						{{item.content}}{{item.label_count}}
 					</span>
 				</div>
-				<div class="rating-list">
-					
-				</div>
+				<ul class="rating-list">
+					<li v-for="comment in selectComments" class="comment-item">
+							<div class="comment-header">
+								<img :src="comment.user_pic_url" v-if="comment.user_pic_url">
+								<img src="./anonymity.png" v-if="!comment.user_pic_url">
+							</div>
+							<div class="comment-main">
+								<div class="user">
+									{{comment.user_name}}
+								</div>
+								<div class="time">
+									{{comment.comment_time}}
+								</div>
+								<div class="star-wrapper">
+									<span class="text">評分</span>
+									<Star class="star" :score='comment.order_comment_score'></Star>
+								</div>
+								<div class="c_content">
+									{{comment.comment}}
+								</div>
+							</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -58,6 +78,8 @@
 	import Star from 'components/Star/Star'
 	//導入Split
 	import Split from 'components/Split/Split'
+	//導入BSscroll
+	import BScroll from 'better-scroll'
 
 	const ALL = 2;	//全部
 	const PICTURE = 1;	//帶圖片
@@ -78,6 +100,18 @@
         var dataSource = response.data;
         if(dataSource.code == 0){
           that.ratings = dataSource.data;
+
+
+          //初始化滾動
+					that.$nextTick(()=>{
+						if(!that.scroll){
+							that.scroll = new BScroll(that.$refs.ratingView, {
+									click: true
+							});
+						} else {
+							that.scroll.refresh();
+						}
+					});
         }
       })
       .catch(function (error) { //出錯處理
@@ -89,9 +123,27 @@
 				this.selectType = type;
 			}
 		},
+		computed: {
+			selectComments(){
+				if(this.selectType == ALL){	//全部
+					return this.ratings.comments;
+				}else if(this.selectType == PICTURE){	//有圖
+					let arr = [];
+					this.ratings.comments.forEach((comment)=>{
+						if(comment.comment_pics.length){	//有長度代表有圖片
+							arr.push(comment);
+						}
+					});
+					return arr;
+				}else{	//點評
+					return this.ratings.comments_dp.comments;
+				}
+			}
+		},
 		components: {
 			Star,
-			Split
+			Split,
+			BScroll
 		}
 	}
 </script>
