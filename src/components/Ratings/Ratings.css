@@ -183,5 +183,16 @@
 	margin-top: 15px;
 	font-size: 13px;
 	line-height: 19px;
-	clear: both;
+	float: left;
+	width: 100%;
+}
+.ratings .ratings-wrapper .content .rating-list .comment-item .comment-main .c_content i{
+	color: #576b95;
+}
+.ratings .ratings-wrapper .content .rating-list .comment-item .comment-main .img-wrapper{
+	margin-top: 9px;
+	float: left;
+}
+.ratings .ratings-wrapper .content .rating-list .comment-item .comment-main .img-wrapper img{
+	width: 175px;
 }

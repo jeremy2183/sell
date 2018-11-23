@@ -56,14 +56,17 @@
 									{{comment.user_name}}
 								</div>
 								<div class="time">
-									{{comment.comment_time}}
+									{{formatDate(comment.comment_time)}}
 								</div>
 								<div class="star-wrapper">
 									<span class="text">評分</span>
 									<Star class="star" :score='comment.order_comment_score'></Star>
 								</div>
-								<div class="c_content">
-									{{comment.comment}}
+								<div class="c_content" v-html="commentStr(comment.comment)">
+									<!-- {{commentStr(comment.comment)}}  用v-html才會吃上<i>標籤 -->
+								</div>
+								<div class="img-wrapper" v-if="comment.comment_pics.length">
+									<img v-for="item in comment.comment_pics" :src="item.thumbnail_url">
 								</div>
 							</div>
 					</li>
@@ -121,6 +124,41 @@
 		methods: {
 			selectTypeFn(type) {
 				this.selectType = type;
+
+				//刷新操作
+				// this.$nextTick(()=>{
+				// 	this.scroll.refresh();
+				// });
+			},
+			formatDate(time){
+				let date = new Date(time*1000);
+
+				//時間格式
+				let fmt = 'yyyy.MM.dd';
+
+				if(/(y+)/.test(fmt)){	//年
+					let year = date.getFullYear().toString();
+					fmt = fmt.replace(RegExp.$1,year);
+				}
+				if(/(M+)/.test(fmt)){	//月
+					let month = date.getMonth() + 1;
+					if(month<10){
+						month = '0' + month;
+					}
+					fmt = fmt.replace(RegExp.$1,month)
+				}
+				if(/(d+)/.test(fmt)){	//日
+					let mydate = date.getDate();
+					if(mydate<10){
+						mydate = '0' + mydate;
+					}
+					fmt = fmt.replace(RegExp.$1,mydate);
+				}
+				return fmt;
+			},
+			commentStr(content){
+				let rel = /#[^#]+#/g;
+				return content.replace(rel,'<i>$&</i>');
 			}
 		},
 		computed: {
