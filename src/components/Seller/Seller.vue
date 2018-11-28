@@ -32,9 +32,25 @@
 
 			<Split></Split>
 			<div class="other-wrapper">
-				
+				<div class="service-wrapper">
+					商家服務
+					<div class="poi-service" v-for="item in seller.poi_service">
+						<img :src="item.icon">
+						{{item.content}}
+					</div>
+				</div>
+				<div class="discounts-wrapper">
+					<div class="discounts-item" v-for="item in seller.discounts2">
+						<div class="icon">
+							<img :src="item.icon_url">
+						</div>
+						<div class="text">
+							{{item.info}}
+						</div>
+					</div>
+				</div>
 			</div>
-		
+			<Split class="bottom"></Split>
 		</div>
 
 	</div>
