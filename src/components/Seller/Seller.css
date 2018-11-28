@@ -15,7 +15,7 @@
 .seller .seller-wrapper .seller-view .address-wrapper{
 	display: flex;
 	padding: 16px 0;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #f4f4f4;
 }
 .seller .seller-wrapper .seller-view .address-wrapper .address-left{
 	flex: 1;
@@ -38,10 +38,24 @@
 	background-size: 18px 18px;
 }
 .seller .seller-wrapper .seller-view .pic-wrapper{
+	padding: 10px 0;
+	overflow-y: hidden;
+	border-bottom: 1px solid #f4f4f4;
+	white-space: nowrap;
+}
+.seller .seller-wrapper .seller-view .pic-wrapper .pics-list{
 
 }
-.seller .seller-wrapper .seller-view .pic-wrapper img{
-
+.seller .seller-wrapper .seller-view .pic-wrapper .pics-list .pics-item{
+	display: inline-block;
+	margin-right: 11px;
+	width: 93px;
+	height: 75px;
+}
+.seller .seller-wrapper .seller-view .pic-wrapper .pics-list .pics-item img{
+	width: 100%;
+	height: 100%;
+	border-radius: 2px;
 }
 .seller .seller-wrapper .seller-view .safety-wrapper{
 
