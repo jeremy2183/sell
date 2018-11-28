@@ -18,14 +18,22 @@
 						</li>
 					</ul>
 				</div>
-				<div class="safety-wrapper"></div>
+				<div class="safety-wrapper">
+					查看食品安全檔案
+					<span class="icon-keyboard_arrow_right"></span>
+				</div>
 			</div>
 			
 			<Split></Split>
-			<div class="tip-wrapper"></div>
+			<div class="tip-wrapper">
+				<div class="delivery-wrapper">配送服務：{{seller.app_delivery_tip}}</div>
+				<div class="shipping-wrapper">配送時間：{{seller.shipping_time}}</div>
+			</div>
 
 			<Split></Split>
-			<div class="other-wrapper"></div>
+			<div class="other-wrapper">
+				
+			</div>
 		
 		</div>
 
