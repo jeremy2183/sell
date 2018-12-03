@@ -188,7 +188,7 @@
 	left: 0;
 	top: 0;
 	background: rgba(98,98,98,0.8);
-	z-index: 1;
+	z-index: 999;
 }
 .header .bulletin-detail .detail-wrapper{
 	width: 100%;
@@ -297,13 +297,13 @@
 
 */
 /*方式一*/
-.detail-enter-active, .detail-leave-active{
+.bulletin-detail-enter-active, .bulletin-detail-leave-active{
 	transition: 1.5s all;
 }
-.detail-enter, .detail-leave-to{
+.bulletin-detail-enter, .bulletin-detail-leave-to{
 	opacity: 0;
 }
-.detail-enter-to, .detail-leave{
+.bulletin-detail-enter-to, .bulletin-detail-leave{
 	opacity: 1;
 }
 

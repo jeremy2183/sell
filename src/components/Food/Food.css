@@ -8,10 +8,10 @@
 	z-index: 90;
 }
 
-.detail-enter-active, .detail-leave-active{
+.foods-detail-enter-active, .foods-detail-leave-active{
   transition: 1.0s;
 }
-.detail-enter, .detail-leave-to{
+.foods-detail-enter, .foods-detail-leave-to{
   transform: translateX(100%);
 
 }

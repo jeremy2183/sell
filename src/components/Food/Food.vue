@@ -1,5 +1,5 @@
 <template>
-	<transition name="detail">
+	<transition name="foods-detail">
 		<div class="foods" v-show="showFlag" ref="foodView">
 			<div class="food-wrapper">
 				<div class="food-content">
